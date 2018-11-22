@@ -1,0 +1,8 @@
+#ifndef JARRO_H_INCLUDED
+#define JARRO_H_INCLUDED
+
+class Jarro {
+
+};
+
+#endif // JARRO_H_INCLUDED

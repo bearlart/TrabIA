@@ -1,0 +1,16 @@
+#ifndef NO_H_INCLUDED
+#define NO_H_INCLUDED
+#include <vector>
+
+using namespace std;
+
+class No
+{
+    public:
+        No(vector<int> j) { jarros = j; }
+        ~No() {};
+
+        vector<Jarro> jarros;
+};
+
+#endif // NO_H_INCLUDED

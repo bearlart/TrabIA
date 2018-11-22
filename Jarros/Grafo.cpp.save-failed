@@ -1,0 +1,37 @@
+#include "Grafo.h"
+#include <vector>
+
+using namespace std;
+
+Grafo::Grafo(vector<int> j)
+{
+    numJarros = j.size();
+    capacidadeLitrosCadaJarro = j;
+    vector<int> jarrosInicio;
+    for(int i=0; i<numJarros; i++) { jarrosInicio.push_back(new Jarro(0)); }
+    No* raiz = new No(jarrosInicio);
+    listaNo.push_back(raiz);
+    montaGrafo(raiz);
+}
+
+Grafo::~Grafo(){}
+
+void Grafo::montaGrafo(No* no)
+{
+    No* aux;
+
+}
+
+/*void Grafo::backtracking()
+
+void Grafo::buscaLargura()
+
+void Grafo::buscaProfundidade()
+
+void Grafo::buscaOrdenada()
+
+void Grafo::buscaGulosa()
+
+void Grafo::buscaA*()
+
+void Grafo::buscaIDA*()*/
