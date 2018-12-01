@@ -1,4 +1,5 @@
 #include "No.h"
+#include <iostream>
 
 No::No(int indice)
 {
@@ -8,7 +9,7 @@ No::No(int indice)
     arestaDireita = false;
     arestaEsquerda = false;
     visitado = false;
-    regraBt = 1;
+    pai = NULL;
 }
 
 No::~No()

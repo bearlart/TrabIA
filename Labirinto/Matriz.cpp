@@ -31,7 +31,7 @@ Matriz::Matriz(int m, int n)
 
     ///Adicionando nó inicio e fim manualmente
     inicio = vetor.at(11);
-    fim = vetor.at(1);
+    fim = vetor.at(9);
 }
 
 Matriz::~Matriz() { }
@@ -94,75 +94,51 @@ void Matriz::imprime()
 
 void Matriz::backtracking()
 {
+    defineRegrasBackTracking();
+    vector<int> caminho;
+    No* aux;
     No* no = inicio;
-    No* pai = NULL;
-    vector<int> bt;
-    int contador = 0;
-    int id;
+    bool fracasso = false;
+    bool sucesso = false;
 
-    while((no != fim) || (contador == numColunas*numLinhas))
-    {
-        bt.push_back(no->getId());
-        if(!no->getVisitado()){
-            contador++;
-        }
+    caminho.push_back(no->getId());
+    while(!(sucesso || fracasso)){
         no->setVisitado(true);
-
-        if(no->getRegraBt() == 1)
-        {
-            id = no->getId() - numColunas;
-            if((no == inicio)||(no-pai != numColunas)){
-                if(no->getArestaAcima()){
-                    if(!vetor.at(id)->getVisitado()){
-                        no->setRegraBt(2);
-                        pai = no;
-                        no = vetor.at(id);
-                    }
-                }
+        if(no->regras.size() != 0){
+            aux = no->regras.back();
+            no->regras.pop_back();
+            if(((no == inicio) || (aux != no->getPai()))&&(!aux->getVisitado())){
+                aux->setPai(no);
+                no = aux;
+                caminho.push_back(no->getId());
             }
-        }
-        if(no->getRegraBt() == 2)
-        {
-            id = no->getId() + 1;
-            if((no == inicio)||(no-pai != -1)){
-                if(no->getArestaDireita()){
-                    if(!vetor.at(id)->getVisitado()){
-                        no->setRegraBt(3);
-                        pai = no;
-                        no = vetor.at(id);
-                    }
-                }
+            if(no == fim){
+                sucesso = true;
             }
-        }
-        if(no->getRegraBt() == 3)
-        {
-            id = no->getId() + numColunas;
-            if((no == inicio)||(no-pai != -1*numColunas)){
-                if(no->getArestaAbaixo()){
-                    if(!vetor.at(id)->getVisitado()){
-                        no->setRegraBt(4);
-                        pai = no;
-                        no = vetor.at(id);
-                    }
-                }
-            }
-        }
-        if(no->getRegraBt() == 4)
-        {
-            id = no->getId() - 1;
-            if((no == inicio)||(no-pai != 1)){
-                if(no->getArestaEsquerda()){
-                    if(!vetor.at(id)->getVisitado()){
-                        no->setRegraBt(0);
-                        pai = no;
-                        no = vetor.at(id);
-                    }
-                }
+        } else {
+            if(no == inicio){
+                fracasso = true;
+            } else {
+                no = no->getPai();
+                caminho.push_back(no->getId());
             }
         }
     }
 
-    for(int i=0; i<bt.size(); i++){
-        cout << bt.at(i) << " - ";
+    for(int i=0; i<caminho.size(); i++){
+        cout << caminho.at(i) << " - ";
+    }
+}
+
+void Matriz::defineRegrasBackTracking(){
+    for(int i=0; i<vetor.size(); i++){
+        if(vetor.at(i)->getArestaEsquerda())
+            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() - 1));
+        if(vetor.at(i)->getArestaAbaixo())
+            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() + numColunas));
+        if(vetor.at(i)->getArestaDireita())
+            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() + 1));
+        if(vetor.at(i)->getArestaAcima())
+            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() - numColunas));
     }
 }

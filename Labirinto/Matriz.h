@@ -20,6 +20,7 @@ class Matriz
         void imprime();
 
         void backtracking();
+        void defineRegrasBackTracking();
         void buscaLargura();
         void buscaProfundidade();
         void buscaOrdenada();

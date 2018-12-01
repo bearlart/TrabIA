@@ -1,6 +1,8 @@
 #ifndef NO_H
 #define NO_H
+#include <vector>
 
+using namespace std;
 
 class No
 {
@@ -9,12 +11,14 @@ class No
         No() { }
         ~No();
 
+        vector<No*> regras;
         int getId() { return id; }
         bool getVisitado() { return visitado; }
         void setVisitado(bool val) { visitado = val; }
-        int getRegraBt() { return regraBt; }
-        void setRegraBt(int val) { regraBt = val; }
+        No* getPai() { return pai; }
+        void setPai(No* val) { pai = val; }
 
+        //Arestas
         bool getArestaAcima() { return arestaAcima; }
         void setArestaAcima(bool acima) { arestaAcima = acima; }
         bool getArestaAbaixo() { return arestaAbaixo; }
@@ -33,7 +37,7 @@ class No
         bool arestaEsquerda;
         bool arestaDireita;
         bool visitado;
-        int regraBt;
+        No* pai;
 };
 
 #endif // NO_H
