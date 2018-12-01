@@ -91,11 +91,17 @@ void Matriz::imprime()
         cout << endl;
     }
 }
-
+/*
 void Matriz::backtracking()
 {
-    No* no = inicio;
-    No* pai = NULL;
+    vector<int> btCaminho = auxBacktracking(inicio, NULL);
+    for(int i=0; i<btCaminho.size(); i++){
+        cout << btCaminho.at(i) << " - ";
+    }
+}
+
+vector<int> Matriz::auxBacktracking(No* no, No* pai)
+{
     vector<int> bt;
     int contador = 0;
     int id;
@@ -160,8 +166,5 @@ void Matriz::backtracking()
             }
         }
     }
-
-    for(int i=0; i<bt.size(); i++){
-        cout << bt.at(i) << " - ";
-    }
-}
+    return bt;
+}*/

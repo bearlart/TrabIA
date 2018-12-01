@@ -8,7 +8,7 @@ using namespace std;
 int main()
 {
     Matriz* labirinto = new Matriz(4,3);
-    labirinto->imprime();
+    labirinto->backtracking();
     //--------------------------------------------------- MENU --------------------------------------------------
     /*int menu;
     do menu = exibeMenu(labirinto);

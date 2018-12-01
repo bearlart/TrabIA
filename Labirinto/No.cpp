@@ -8,6 +8,7 @@ No::No(int indice)
     arestaDireita = false;
     arestaEsquerda = false;
     visitado = false;
+    regraBt = 1;
 }
 
 No::~No()

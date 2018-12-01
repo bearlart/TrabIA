@@ -4,9 +4,6 @@
 #include "No.h"
 #include <vector>
 
-#define X 4
-#define Y 3
-
 using namespace std;
 
 class Matriz
