@@ -4,12 +4,24 @@ Matriz::Matriz(int m, int n)
 {
     numLinhas = m;
     numColunas = n;
-    vetor = new No[numLinhas*numColunas];
+    vetor = new No*[numLinhas*numColunas];
 }
 
 Matriz::~Matriz()
 {
     delete [] vetor;
+}
+
+void MatrizLin::atribui(int linha, int coluna, No* no)
+{
+    int k = detInd(linha, coluna);
+    if(k != -1)
+        vet[k] = no;
+    else
+    {
+        cout << "Indice invalido!" << endl;
+        exit(1);
+    }
 }
 
 No* Matriz::consulta(int linha, int coluna)
