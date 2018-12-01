@@ -8,9 +8,6 @@ int exibeMenu(Grafo* grafo);
 
 int main()
 {
-    Grafo* grafo = criaGrafo();
-    grafo->imprimeNoAdjacentes();
-
     //--------------------------------------------------- MENU --------------------------------------------------
     /*int menu;
     do menu = exibeMenu(grafo);

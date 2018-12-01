@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="No.cpp" />
+		<Unit filename="No.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
