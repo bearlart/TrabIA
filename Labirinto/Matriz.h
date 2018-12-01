@@ -2,9 +2,12 @@
 #define MATRIZ_H
 
 #include "No.h"
+#include <vector>
 
 #define X 4
 #define Y 3
+
+using namespace std;
 
 class Matriz
 {
@@ -12,9 +15,8 @@ class Matriz
         Matriz(int m, int n);
         ~Matriz();
 
-        No** vetor;
+        vector<No*> vetor;
 
-        void atribui(int linha, int coluna, No* no);
         void adicionaAresta(int id1, int id2);
         No* consulta(int linha, int coluna);
         int determinaId(int linha, int coluna);

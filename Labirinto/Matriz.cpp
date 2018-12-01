@@ -10,13 +10,8 @@ Matriz::Matriz(int m, int n)
     numColunas = n;
 
     ///Criação dos nós sem arestas
-    for(int i=0; i<numLinhas; i++)
-    {
-        for(int j=0; j<numColunas; j++)
-        {
-            atribui(i,j,new No(i+j));
-        }
-    }
+    for(int i=0; i<numLinhas*numColunas; i++)
+        vetor.push_back(new No(i));
 
     adicionaAresta(0,1);
     adicionaAresta(0,3);
@@ -32,40 +27,25 @@ Matriz::Matriz(int m, int n)
     adicionaAresta(10,11);
 }
 
-Matriz::~Matriz()
-{
-    delete [] vetor;
-}
-
-void Matriz::atribui(int linha, int coluna, No* no)
-{
-    int k = determinaId(linha, coluna);
-    if(k != -1)
-        vetor[k] = no;
-    else
-    {
-        cout << "Indice invalido!" << endl;
-        exit(1);
-    }
-}
+Matriz::~Matriz() { }
 
 void Matriz::adicionaAresta(int id1, int id2)
 {
     if(id1 < id2){
         if(id2-id1 < numColunas){
-            vetor[id1]->setArestaDireita(true);
-            vetor[id2]->setArestaEsquerda(true);
+            vetor.at(id1)->setArestaDireita(true);
+            vetor.at(id2)->setArestaEsquerda(true);
         } else {
-            vetor[id1]->setArestaAbaixo(true);
-            vetor[id2]->setArestaAcima(true);
+            vetor.at(id1)->setArestaAbaixo(true);
+            vetor.at(id2)->setArestaAcima(true);
         }
     } else if(id1 > id2){
         if(id1-id2 < numColunas){
-            vetor[id1]->setArestaEsquerda(true);
-            vetor[id2]->setArestaDireita(true);
+            vetor.at(id1)->setArestaEsquerda(true);
+            vetor.at(id2)->setArestaDireita(true);
         } else {
-            vetor[id1]->setArestaAcima(true);
-            vetor[id2]->setArestaAbaixo(true);
+            vetor.at(id1)->setArestaAcima(true);
+            vetor.at(id2)->setArestaAbaixo(true);
         }
     }
 }
@@ -74,7 +54,7 @@ No* Matriz::consulta(int linha, int coluna)
 {
     int k = determinaId(linha, coluna);
     if(k != -1)
-        return vetor[k];
+        return vetor.at(k);
     else
     {
         cout << "Indice invalido!" << endl;
@@ -97,9 +77,9 @@ void Matriz::imprime()
         for(int j=0; j<numColunas; j++)
         {
             if(i==numLinhas-1 && j==numColunas-1)
-                cout << vetor[determinaId(i,j)] << ".";
+                cout << vetor.at(determinaId(i,j))->getId() << ".";
             else
-                cout << vetor[determinaId(i,j)] << ", \t";
+                cout << vetor.at(determinaId(i,j))->getId() << ", \t";
         }
         cout << endl;
     }

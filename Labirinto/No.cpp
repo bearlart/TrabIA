@@ -1,8 +1,8 @@
 #include "No.h"
 
-No::No(int id)
+No::No(int indice)
 {
-    id = id;
+    id = indice;
     arestaAbaixo = false;
     arestaAcima = false;
     arestaDireita = false;

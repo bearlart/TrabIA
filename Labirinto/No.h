@@ -5,7 +5,7 @@
 class No
 {
     public:
-        No(int id);
+        No(int indice);
         No() { }
         ~No();
 

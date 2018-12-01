@@ -2,16 +2,17 @@
 1543670234 source:c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\no.cpp
 	"No.h"
 
-1543670251 c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\no.h
+1543675192 c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\no.h
 
 1543672760 source:c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\main.cpp
 	<iostream>
 	"Matriz.h"
 
-1543672421 c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\matriz.h
+1543674906 c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\matriz.h
 	"No.h"
+	<vector>
 
-1543672778 source:c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\matriz.cpp
+1543675133 source:c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\matriz.cpp
 	"Matriz.h"
 	<iostream>
 	<cstdlib>
