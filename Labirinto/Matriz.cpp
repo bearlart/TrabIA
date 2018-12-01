@@ -13,6 +13,8 @@ Matriz::Matriz(int m, int n)
     for(int i=0; i<numLinhas*numColunas; i++)
         vetor.push_back(new No(i));
 
+    ///Adicionando as arestas manualmente
+    ///Seguindo o modelo do slide 76 da unidade 1
     adicionaAresta(0,1);
     adicionaAresta(0,3);
     adicionaAresta(1,4);
@@ -25,6 +27,10 @@ Matriz::Matriz(int m, int n)
     adicionaAresta(8,11);
     adicionaAresta(9,10);
     adicionaAresta(10,11);
+
+    ///Adicionando nó inicio e fim manualmente
+    inicio = vetor.at(11);
+    fim = vetor.at(1);
 }
 
 Matriz::~Matriz() { }
@@ -83,4 +89,9 @@ void Matriz::imprime()
         }
         cout << endl;
     }
+}
+
+void Matriz::backtracking()
+{
+
 }
