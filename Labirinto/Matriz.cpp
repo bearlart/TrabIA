@@ -52,7 +52,7 @@ void Matriz::atribui(int linha, int coluna, No* no)
 void Matriz::adicionaAresta(int id1, int id2)
 {
     if(id1 < id2){
-        if(id2-id1 < 3){
+        if(id2-id1 < numColunas){
             vetor[id1]->setArestaDireita(true);
             vetor[id2]->setArestaEsquerda(true);
         } else {
@@ -60,7 +60,7 @@ void Matriz::adicionaAresta(int id1, int id2)
             vetor[id2]->setArestaAcima(true);
         }
     } else if(id1 > id2){
-        if(id1-id2 < 3){
+        if(id1-id2 < numColunas){
             vetor[id1]->setArestaEsquerda(true);
             vetor[id2]->setArestaDireita(true);
         } else {

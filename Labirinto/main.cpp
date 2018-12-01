@@ -3,10 +3,12 @@
 
 using namespace std;
 
-int exibeMenu(Matriz* labirinto);
+//int exibeMenu(Matriz* labirinto);
 
 int main()
 {
+    Matriz* labirinto = new Matriz(4,3);
+    labirinto->imprime();
     //--------------------------------------------------- MENU --------------------------------------------------
     /*int menu;
     do menu = exibeMenu(labirinto);
