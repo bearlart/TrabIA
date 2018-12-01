@@ -5,6 +5,15 @@ Matriz::Matriz(int m, int n)
     numLinhas = m;
     numColunas = n;
     vetor = new No*[numLinhas*numColunas];
+
+    ///Criação dos nós sem arestas
+    for(int i=0; i<numLinhas; i++)
+    {
+        for(int j=0; j<numColunas; j++)
+        {
+            atribui(i,j,new No(i+j));
+        }
+    }
 }
 
 Matriz::~Matriz()

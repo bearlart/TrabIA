@@ -12,6 +12,7 @@ class Matriz
 
         int determinaId(int linha, int coluna);
         void imprime();
+        void atribui(int linha, int coluna, No* no);
 
     protected:
 

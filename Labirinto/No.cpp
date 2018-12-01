@@ -1,12 +1,12 @@
 #include "No.h"
 
-No::No(int id, bool acima, bool abaixo, bool esquerda, bool direita)
+No::No(int id)
 {
     id = id;
-    arestaAbaixo = abaixo;
-    arestaAcima = acima;
-    arestaDireita = direita;
-    arestaEsquerda = esquerda;
+    arestaAbaixo = false;
+    arestaAcima = false;
+    arestaDireita = false;
+    arestaEsquerda = false;
     visitado = false;
 }
 
