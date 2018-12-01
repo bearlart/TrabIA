@@ -10,12 +10,16 @@
 	<iostream>
 	"Matriz.h"
 
-1543693065 c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\matriz.h
+1543701827 c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\matriz.h
 	"No.h"
+	"Aresta.h"
 	<vector>
 
 1543686886 source:c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\matriz.cpp
 	"Matriz.h"
 	<iostream>
 	<cstdlib>
+
+1543701864 c:\users\carni\google drive\documentos\ufjf\sistemas de informação\5º período\inteligência artificial\trabia\labirinto\aresta.h
+	"No.h"
 

@@ -11,7 +11,7 @@ Matriz::Matriz(int m, int n)
 
     ///Criação dos nós sem arestas
     for(int i=0; i<numLinhas*numColunas; i++){
-        vetor.push_back(new No(i));
+        listaNo.push_back(new No(i));
     }
 
     ///Adicionando as arestas manualmente
@@ -30,38 +30,49 @@ Matriz::Matriz(int m, int n)
     adicionaAresta(10,11);
 
     ///Adicionando nó inicio e fim manualmente
-    inicio = vetor.at(11);
-    fim = vetor.at(9);
+    inicio = listaNo.at(11);
+    fim = listaNo.at(9);
 }
 
 Matriz::~Matriz() { }
 
 void Matriz::adicionaAresta(int id1, int id2)
 {
+    listaAresta.push_back(new Aresta(listaNo.at(id1),listaNo.at(id2)));
     if(id1 < id2){
         if(id2-id1 < numColunas){
-            vetor.at(id1)->setArestaDireita(true);
-            vetor.at(id2)->setArestaEsquerda(true);
+            listaNo.at(id1)->setArestaDireita(true);
+            listaNo.at(id2)->setArestaEsquerda(true);
         } else {
-            vetor.at(id1)->setArestaAbaixo(true);
-            vetor.at(id2)->setArestaAcima(true);
+            listaNo.at(id1)->setArestaAbaixo(true);
+            listaNo.at(id2)->setArestaAcima(true);
         }
     } else if(id1 > id2){
         if(id1-id2 < numColunas){
-            vetor.at(id1)->setArestaEsquerda(true);
-            vetor.at(id2)->setArestaDireita(true);
+            listaNo.at(id1)->setArestaEsquerda(true);
+            listaNo.at(id2)->setArestaDireita(true);
         } else {
-            vetor.at(id1)->setArestaAcima(true);
-            vetor.at(id2)->setArestaAbaixo(true);
+            listaNo.at(id1)->setArestaAcima(true);
+            listaNo.at(id2)->setArestaAbaixo(true);
         }
     }
+}
+
+Aresta* Matriz::buscaAresta(No* ant, No* prox){
+    for(int i=0; i<listaAresta.size(); i++){
+        if((listaAresta.at(i)->getNoAnt() == ant) && (listaAresta.at(i)->getNoProx() == prox))
+            return listaAresta.at(i);
+        if((listaAresta.at(i)->getNoAnt() == prox) && (listaAresta.at(i)->getNoProx() == ant))
+            return listaAresta.at(i);
+    }
+    return NULL;
 }
 
 No* Matriz::consulta(int linha, int coluna)
 {
     int k = determinaId(linha, coluna);
     if(k != -1)
-        return vetor.at(k);
+        return listaNo.at(k);
     else
     {
         cout << "Indice invalido!" << endl;
@@ -84,9 +95,9 @@ void Matriz::imprime()
         for(int j=0; j<numColunas; j++)
         {
             if(i==numLinhas-1 && j==numColunas-1)
-                cout << vetor.at(determinaId(i,j))->getId() << ".";
+                cout << listaNo.at(determinaId(i,j))->getId() << ".";
             else
-                cout << vetor.at(determinaId(i,j))->getId() << ", \t";
+                cout << listaNo.at(determinaId(i,j))->getId() << ", \t";
         }
         cout << endl;
     }
@@ -131,14 +142,14 @@ void Matriz::backtracking()
 }
 
 void Matriz::defineRegrasBackTracking(){
-    for(int i=0; i<vetor.size(); i++){
-        if(vetor.at(i)->getArestaEsquerda())
-            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() - 1));
-        if(vetor.at(i)->getArestaAbaixo())
-            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() + numColunas));
-        if(vetor.at(i)->getArestaDireita())
-            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() + 1));
-        if(vetor.at(i)->getArestaAcima())
-            vetor.at(i)->regras.push_back(vetor.at(vetor.at(i)->getId() - numColunas));
+    for(int i=0; i<listaNo.size(); i++){
+        if(listaNo.at(i)->getArestaEsquerda())
+            listaNo.at(i)->regras.push_back(listaNo.at(listaNo.at(i)->getId() - 1));
+        if(listaNo.at(i)->getArestaAbaixo())
+            listaNo.at(i)->regras.push_back(listaNo.at(listaNo.at(i)->getId() + numColunas));
+        if(listaNo.at(i)->getArestaDireita())
+            listaNo.at(i)->regras.push_back(listaNo.at(listaNo.at(i)->getId() + 1));
+        if(listaNo.at(i)->getArestaAcima())
+            listaNo.at(i)->regras.push_back(listaNo.at(listaNo.at(i)->getId() - numColunas));
     }
 }
