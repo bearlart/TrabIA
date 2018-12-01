@@ -37,6 +37,18 @@ Matriz::~Matriz()
     delete [] vetor;
 }
 
+void Matriz::atribui(int linha, int coluna, No* no)
+{
+    int k = determinaId(linha, coluna);
+    if(k != -1)
+        vetor[k] = no;
+    else
+    {
+        cout << "Indice invalido!" << endl;
+        exit(1);
+    }
+}
+
 void Matriz::adicionaAresta(int id1, int id2)
 {
     if(id1 < id2){
