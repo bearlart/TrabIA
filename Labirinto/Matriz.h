@@ -14,6 +14,7 @@ class Matriz
 
         No** vetor;
 
+        void adicionaAresta(int id1, int id2);
         No* consulta(int linha, int coluna);
         int determinaId(int linha, int coluna);
         void imprime();
