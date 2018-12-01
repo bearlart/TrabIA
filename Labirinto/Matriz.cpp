@@ -17,11 +17,45 @@ Matriz::Matriz(int m, int n)
             atribui(i,j,new No(i+j));
         }
     }
+
+    adicionaAresta(0,1);
+    adicionaAresta(0,3);
+    adicionaAresta(1,4);
+    adicionaAresta(2,5);
+    adicionaAresta(3,4);
+    adicionaAresta(3,6);
+    adicionaAresta(4,5);
+    adicionaAresta(4,7);
+    adicionaAresta(7,8);
+    adicionaAresta(8,11);
+    adicionaAresta(9,10);
+    adicionaAresta(10,11);
 }
 
 Matriz::~Matriz()
 {
     delete [] vetor;
+}
+
+void Matriz::adicionaAresta(int id1, int id2)
+{
+    if(id1 < id2){
+        if(id2-id1 < 3){
+            vetor[id1]->setArestaDireita(true);
+            vetor[id2]->setArestaEsquerda(true);
+        } else {
+            vetor[id1]->setArestaAbaixo(true);
+            vetor[id2]->setArestaAcima(true);
+        }
+    } else if(id1 > id2){
+        if(id1-id2 < 3){
+            vetor[id1]->setArestaEsquerda(true);
+            vetor[id2]->setArestaDireita(true);
+        } else {
+            vetor[id1]->setArestaAcima(true);
+            vetor[id2]->setArestaAbaixo(true);
+        }
+    }
 }
 
 No* Matriz::consulta(int linha, int coluna)

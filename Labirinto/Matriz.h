@@ -18,7 +18,13 @@ class Matriz
         int determinaId(int linha, int coluna);
         void imprime();
 
-    protected:
+        void backtracking();
+        void buscaLargura();
+        void buscaProfundidade();
+        void buscaOrdenada();
+        void buscaGulosa();
+        void buscaA();
+        void buscaIDA();
 
     private:
         No* inicio;
