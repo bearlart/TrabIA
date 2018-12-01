@@ -100,11 +100,12 @@ void Matriz::backtracking()
     int contador = 0;
     int id;
 
-    while(no != fim || contador == numColunas*numLinhas)
+    while((no != fim) || (contador == numColunas*numLinhas))
     {
         bt.push_back(no->getId());
-        if(!no->getVisitado())
+        if(!no->getVisitado()){
             contador++;
+        }
         no->setVisitado(true);
 
         if(no->getRegraBt() == 1)
@@ -136,7 +137,7 @@ void Matriz::backtracking()
         if(no->getRegraBt() == 3)
         {
             id = no->getId() + numColunas;
-            if((no == inicio)||(no-pai != -numColunas)){
+            if((no == inicio)||(no-pai != -1*numColunas)){
                 if(no->getArestaAbaixo()){
                     if(!vetor.at(id)->getVisitado()){
                         no->setRegraBt(4);

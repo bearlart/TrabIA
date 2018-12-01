@@ -12,8 +12,8 @@ class No
         int getId() { return id; }
         bool getVisitado() { return visitado; }
         void setVisitado(bool val) { visitado = val; }
-        bool getRegraBt() { return regraBt; }
-        void setRegraBt(bool val) { regraBt = val; }
+        int getRegraBt() { return regraBt; }
+        void setRegraBt(int val) { regraBt = val; }
 
         bool getArestaAcima() { return arestaAcima; }
         void setArestaAcima(bool acima) { arestaAcima = acima; }
