@@ -1,10 +1,13 @@
 #include "Matriz.h"
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
 
 Matriz::Matriz(int m, int n)
 {
     numLinhas = m;
     numColunas = n;
-    vetor = new No*[numLinhas*numColunas];
 
     ///Criação dos nós sem arestas
     for(int i=0; i<numLinhas; i++)
@@ -21,11 +24,11 @@ Matriz::~Matriz()
     delete [] vetor;
 }
 
-void MatrizLin::atribui(int linha, int coluna, No* no)
+void Matriz::atribui(int linha, int coluna, No* no)
 {
-    int k = detInd(linha, coluna);
+    int k = determinaId(linha, coluna);
     if(k != -1)
-        vet[k] = no;
+        vetor[k] = no;
     else
     {
         cout << "Indice invalido!" << endl;
@@ -59,10 +62,10 @@ void Matriz::imprime()
     {
         for(int j=0; j<numColunas; j++)
         {
-            if(i==nl-1 && j==nc-1)
-                cout << vetor[detInd(i,j)] << ".";
+            if(i==numLinhas-1 && j==numColunas-1)
+                cout << vetor[determinaId(i,j)] << ".";
             else
-                cout << vetor[detInd(i,j)] << ", \t";
+                cout << vetor[determinaId(i,j)] << ", \t";
         }
         cout << endl;
     }

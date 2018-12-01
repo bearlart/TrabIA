@@ -6,6 +6,7 @@ class No
 {
     public:
         No(int id);
+        No() { }
         ~No();
 
         int getId() { return id; }

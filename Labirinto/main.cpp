@@ -1,24 +1,23 @@
 #include <iostream>
-#include "Grafo.h"
-#include "Aresta.h"
+#include "Matriz.h"
 
 using namespace std;
 
-int exibeMenu(Grafo* grafo);
+int exibeMenu(Matriz* labirinto);
 
 int main()
 {
     //--------------------------------------------------- MENU --------------------------------------------------
     /*int menu;
-    do menu = exibeMenu(grafo);
+    do menu = exibeMenu(labirinto);
     while(menu>=1 && menu<=7);*/
     //--------------------------------------------------- MENU --------------------------------------------------
 
-    //delete grafo; //Desalocar grafo
+    //delete labirinto; //Desalocar labirinto
     return 0;
 }
 
-/*int exibeMenu(Grafo* grafo)
+/*int exibeMenu(Grafo* labirinto)
 {
     int opMenu;
     cout << "------------------ MENU ------------------" << endl;
@@ -37,25 +36,25 @@ int main()
     switch (opMenu)
     {
     case 1:
-        grafo->backtracking();
+        labirinto->backtracking();
         break;
     case 2:
-        grafo->buscaLargura();
+        labirinto->buscaLargura();
         break;
     case 3:
-        grafo->buscaProfundidade();
+        labirinto->buscaProfundidade();
         break;
     case 4:
-        grafo->buscaOrdenada();
+        labirinto->buscaOrdenada();
         break;
     case 5:
-        grafo->buscaGulosa();
+        labirinto->buscaGulosa();
         break;
     case 6:
-        grafo->buscaA();
+        labirinto->buscaA();
         break;
     case 7:
-        grafo->buscaIDA();
+        labirinto->buscaIDA();
         break;
     default: break;
     }
