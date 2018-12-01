@@ -24,18 +24,6 @@ Matriz::~Matriz()
     delete [] vetor;
 }
 
-void Matriz::atribui(int linha, int coluna, No* no)
-{
-    int k = determinaId(linha, coluna);
-    if(k != -1)
-        vetor[k] = no;
-    else
-    {
-        cout << "Indice invalido!" << endl;
-        exit(1);
-    }
-}
-
 No* Matriz::consulta(int linha, int coluna)
 {
     int k = determinaId(linha, coluna);
