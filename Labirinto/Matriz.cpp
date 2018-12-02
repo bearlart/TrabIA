@@ -9,7 +9,7 @@ Matriz::Matriz(int m, int n)
     numLinhas = m;
     numColunas = n;
 
-    ///Criação dos nós sem arestas
+    ///CriaÃ§Ã£o dos nÃ³s sem arestas
     for(int i=0; i<numLinhas*numColunas; i++){
         listaNo.push_back(new No(i));
     }
@@ -29,7 +29,7 @@ Matriz::Matriz(int m, int n)
     adicionaAresta(9,10);
     adicionaAresta(10,11);
 
-    ///Adicionando nó inicio e fim manualmente
+    ///Adicionando nÃ³ inicio e fim manualmente
     inicio = listaNo.at(11);
     fim = listaNo.at(9);
 }
@@ -159,4 +159,52 @@ void Matriz::defineRegrasBackTracking()
 void Matriz::buscaOrdenada()
 {
 
+}
+
+void Matriz::buscaProfundidade()
+{
+    defineRegrasBackTracking();
+    Pilha *abertos = new Pilha();
+    Pilha *fechados = new Pilha();
+    vector<int> caminho;
+    bool fracasso = false;
+    bool sucesso = false;
+    No* aux;
+    No* no = inicio;
+
+    caminho.push_back(no->getId());
+    abertos->empilha(no);
+
+    while(!(sucesso || fracasso))
+    {
+        no->setVisitado(true);
+        if(abertos->vazia())
+        {
+            fracasso = true;
+        }
+        else
+        {
+            no = abertos->topo();
+            if(no == fim)
+            {
+                sucesso = true;
+            }
+            else
+            {
+                while(no->regras.size() != 0)
+                {
+                    aux = no->regras.back();
+                    //abertos->empilha(aux);
+                    no->regras.pop_back();
+                }
+                caminho.push_back(no->getId());
+                fechados->empilha(no);
+                free(no);
+            }
+        }
+    }
+    for(int i=0; i<caminho.size(); i++)
+    {
+        cout << caminho.at(i) << " - ";
+    }
 }
