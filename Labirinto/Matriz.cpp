@@ -58,7 +58,8 @@ void Matriz::adicionaAresta(int id1, int id2)
     }
 }
 
-Aresta* Matriz::buscaAresta(No* ant, No* prox){
+Aresta* Matriz::buscaAresta(No* ant, No* prox)
+{
     for(int i=0; i<listaAresta.size(); i++){
         if((listaAresta.at(i)->getNoAnt() == ant) && (listaAresta.at(i)->getNoProx() == prox))
             return listaAresta.at(i);
@@ -141,7 +142,8 @@ void Matriz::backtracking()
     }
 }
 
-void Matriz::defineRegrasBackTracking(){
+void Matriz::defineRegrasBackTracking()
+{
     for(int i=0; i<listaNo.size(); i++){
         if(listaNo.at(i)->getArestaEsquerda())
             listaNo.at(i)->regras.push_back(listaNo.at(listaNo.at(i)->getId() - 1));
@@ -152,4 +154,9 @@ void Matriz::defineRegrasBackTracking(){
         if(listaNo.at(i)->getArestaAcima())
             listaNo.at(i)->regras.push_back(listaNo.at(listaNo.at(i)->getId() - numColunas));
     }
+}
+
+void Matriz::buscaOrdenada()
+{
+
 }
